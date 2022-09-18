@@ -5,9 +5,11 @@ import com.khebli.gestiondestockproject.dto.CategoryDto;
 import com.khebli.gestiondestockproject.model.Category;
 import com.khebli.gestiondestockproject.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
 public class CategoryController implements CategoryApi {
     CategoryService categoryService;
 
@@ -49,6 +51,6 @@ public class CategoryController implements CategoryApi {
 
     @Override
     public CategoryDto findByCodeByDesCategory(String code, String designation) {
-        return categoryService.findByCodeByDesCategory(code,designation);
+        return categoryService.findByCodeByDesCategory(code, designation);
     }
 }
