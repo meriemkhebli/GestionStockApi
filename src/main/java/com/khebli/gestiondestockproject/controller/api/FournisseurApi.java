@@ -1,19 +1,31 @@
 package com.khebli.gestiondestockproject.controller.api;
 
 import com.khebli.gestiondestockproject.dto.FournisseurDto;
+import io.swagger.annotations.Api;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.khebli.gestiondestockproject.utils.Constants.*;
+
+
+@Api(FOURNISSEUR_ENDPOINT)
 public interface FournisseurApi {
 
-    FournisseurDto save(FournisseurDto dto);
+    @PostMapping(value = FOURNISSEUR_ENDPOINT +"/create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    FournisseurDto save(@RequestBody FournisseurDto dto);
 
-    FournisseurDto findById(Integer id);
+    @GetMapping(value = FOURNISSEUR_ENDPOINT + "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    FournisseurDto findById(@PathVariable Integer id);
 
-    FournisseurDto findFournisseurByNom(String nomFournisseur);
+    @GetMapping(FOURNISSEUR_ENDPOINT +"/{nomFournisseur}")
+    FournisseurDto findFournisseurByNom(@PathVariable String nomFournisseur);
 
+    @GetMapping(value = FOURNISSEUR_ENDPOINT + "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     List<FournisseurDto> findAll();
 
-    void delete (Integer id);
+    @DeleteMapping(value = FOURNISSEUR_ENDPOINT + "/delete/{id}")
+    void delete (@PathVariable Integer id);
 
 }
