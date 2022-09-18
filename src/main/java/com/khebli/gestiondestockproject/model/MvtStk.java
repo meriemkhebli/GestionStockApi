@@ -30,4 +30,7 @@ public class MvtStk extends AbstractEntity{
     @Column(name="qte_mvt")
     private BigDecimal qteMvt;
 
+    @Column(name="id_entreprise")
+    private Integer idEntreprise;
+
 }

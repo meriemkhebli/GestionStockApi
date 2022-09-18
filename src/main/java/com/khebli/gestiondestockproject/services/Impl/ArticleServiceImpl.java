@@ -8,6 +8,7 @@ import com.khebli.gestiondestockproject.model.Article;
 import com.khebli.gestiondestockproject.repository.ArticleRepository;
 import com.khebli.gestiondestockproject.services.ArticleService;
 import com.khebli.gestiondestockproject.validator.ArticleValidator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 
 
 @Service("articleServiceImpl")
+@Slf4j
 public class ArticleServiceImpl implements ArticleService {
     ArticleRepository articleRepository;
 
@@ -31,8 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleDto save(ArticleDto dto) {
         List<String> errors =ArticleValidator.validate(dto);
         if(!errors.isEmpty()){
-            System.out.println("Article est non valide{}: " + dto);
-         //   log.error("Article est non valide{}",dto);
+            log.error("Article est non valide{}",dto);
             throw new InvalidEntityException("Article n'est pas valide", ErrorCodes.ARTICLE_NOT_VALIDE,errors);
         }
 
@@ -43,9 +44,10 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleDto findById(Integer id) {
         if(id==null){
             System.out.println("ID Article est null: " );
-            //  log.error("Article ID is null");
+             log.error("Article ID is null");
             return null;
         }
+//        return articleRepository.findById(id).map(ArticleDto.fromEntity()).orElseThrow(()->new EntityNotFoundException("Aucun article avec l'Id"+id+"n'a été trouvé dans la BDD",ErrorCodes.ARTICLE_NOT_FOUND));
         Optional<Article> article= articleRepository.findById(id);
         return Optional.of(ArticleDto.fromEntity(article.get())).orElseThrow(()->new EntityNotFoundException("Aucun article avec l'Id"+id+"n'a été trouvé dans la BDD",ErrorCodes.ARTICLE_NOT_FOUND));
     }
@@ -53,8 +55,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ArticleDto findByCodeArticle(String codeArticle) {
         if(!StringUtils.hasLength(codeArticle)){
-            System.out.println("Article code est null: " );
-          //  log.error("Articl code  is null");
+            log.error("Articl code  is null");
             return null;
         }
         Optional<Article> article= articleRepository.findArticleByCodeArticle(codeArticle);
@@ -72,6 +73,5 @@ public class ArticleServiceImpl implements ArticleService {
             return;
         }
         articleRepository.deleteById(id);
-
     }
 }

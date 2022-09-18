@@ -3,7 +3,6 @@ package com.khebli.gestiondestockproject.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -12,16 +11,16 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "roles", schema = "public")
-public class Roles extends AbstractEntity{
+public class Roles extends AbstractEntity {
 
-    @Column(name ="code")
-    private String code;
+
+    @Column(name = "role_name")
+    private String roleName;
+
 
     @ManyToOne
-    @JoinColumn(name="id_utilisateur")
+    @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
-
-
 
 
 }

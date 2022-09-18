@@ -1,14 +1,19 @@
 package com.khebli.gestiondestockproject.dto;
 
 import com.khebli.gestiondestockproject.model.Roles;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class RolesDto {
     private Integer Id;
-    private String code;
+    private String roleName;
+
     private UtilisateurDto utilisateur;
     public static RolesDto fromEntity(Roles roles){
         if(roles ==null){
@@ -16,7 +21,7 @@ public class RolesDto {
         }
         return RolesDto.builder()
                 .Id(roles.getId())
-                .code(roles.getCode())
+                .roleName(roles.getRoleName())
                 .utilisateur(UtilisateurDto.fromEntity(roles.getUtilisateur()))
                 .build();
 
@@ -28,7 +33,7 @@ public class RolesDto {
         }
         Roles roles = new Roles();
         roles.setId(rolesDto.getId());
-        roles.setCode(rolesDto.getCode());
+        roles.setRoleName(rolesDto.getRoleName());
       //  roles.setUtilisateur(rolesDto.getUtilisateur());
 
         return roles;

@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gds
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate:
+        ejb:
+          interceptor: com.khebli.gestiondestockproject.interceptor.interceptor
+    hibernate:
+      ddl-auto: update
+      default-schema: public
+
+  sql:
+    init:
+      platform: postgres
+  session:
+    jdbc:
+      initialize-schema: always
+server:
+  port: 9090
+
+flickr:
+  apiKey: dd7bfc1f79b6f78e0bf64f5658142f9e
+  apiSecret: e8b771cae1cc168b
+  appKey: 72157720855974416-1734793cda9a25aa
+  appSecret: db02cd50698783e8
+
+

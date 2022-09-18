@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category,Integer> {
 
@@ -19,5 +20,6 @@ public interface CategoryRepository extends JpaRepository<Category,Integer> {
 
     @Query(value = "Select * from Categorie where code = :code", nativeQuery = true)
     Category findCategoryByCode(@Param("code") String c );
+    //Optional<Category> findByIdAndIdEntreprise(Integer id, Integer idEntreprise);
 
 }

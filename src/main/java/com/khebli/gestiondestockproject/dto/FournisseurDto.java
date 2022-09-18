@@ -1,14 +1,18 @@
 package com.khebli.gestiondestockproject.dto;
 
 import com.khebli.gestiondestockproject.model.Fournisseur;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class FournisseurDto {
 
     private Integer Id;

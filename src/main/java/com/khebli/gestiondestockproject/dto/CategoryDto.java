@@ -2,13 +2,17 @@ package com.khebli.gestiondestockproject.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.khebli.gestiondestockproject.model.Category;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CategoryDto {
     private Integer Id;
     private String code;

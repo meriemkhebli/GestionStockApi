@@ -1,13 +1,17 @@
 package com.khebli.gestiondestockproject.dto;
 
 import com.khebli.gestiondestockproject.model.Article;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ArticleDto {
 
 
@@ -42,7 +46,7 @@ public class ArticleDto {
                  .tauxTVA(article.getTauxTVA())
                  .photo(article.getPhoto())
                  .category(CategoryDto.fromEntity(article.getCategory()))
-                 .entreprise(EntrepriseDto.fromEntity(article.getEntreprise()))
+                // .entreprise(EntrepriseDto.fromEntity(article.getEntreprise()))
                  .build();
 
     }

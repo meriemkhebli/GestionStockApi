@@ -20,6 +20,9 @@ public class Entreprise extends AbstractEntity{
     @Column(name ="description")
     private String description;
 
+    @Column(name ="code_fiscal")
+    private String codeFiscal;
+
     @Embedded
     private Adresse adresse;
 
@@ -38,6 +41,6 @@ public class Entreprise extends AbstractEntity{
     @OneToMany(mappedBy = "entreprise")
     private List<Utilisateur> utilisateurs;
 
-    @OneToMany(mappedBy = "entreprise")
-    private List<Article>articles;
+//    @OneToMany(mappedBy = "entreprise")
+//    private List<Article>articles;
 }

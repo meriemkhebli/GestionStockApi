@@ -1,8 +1,10 @@
 package com.khebli.gestiondestockproject.dto;
 
 import com.khebli.gestiondestockproject.model.Vente;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.stream.Collectors;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class VenteDto {
 
     private Integer Id;

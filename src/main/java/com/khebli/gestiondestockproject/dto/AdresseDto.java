@@ -1,11 +1,15 @@
 package com.khebli.gestiondestockproject.dto;
 
 import com.khebli.gestiondestockproject.model.Adresse;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdresseDto {
 
     private String adresse1;

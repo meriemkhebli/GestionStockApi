@@ -2,20 +2,26 @@ package com.khebli.gestiondestockproject.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.khebli.gestiondestockproject.model.Entreprise;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class EntrepriseDto {
 
     private Integer Id;
     private String nom;
 
     private String description;
+
+    private String codeFiscal;
 
     private AdresseDto adresse;
 
@@ -30,8 +36,8 @@ public class EntrepriseDto {
     @JsonIgnore
     private List<UtilisateurDto> utilisateurs;
 
-    @JsonIgnore
-    private List<ArticleDto>articles;
+//    @JsonIgnore
+//    private List<ArticleDto>articles;
 
     public static EntrepriseDto fromEntity(Entreprise entreprise){
         if(entreprise ==null){
@@ -53,14 +59,14 @@ public class EntrepriseDto {
                                .collect(Collectors.toList()):null
 
                        )
-               .articles
-                       (
-                               entreprise.getArticles()!=null ?
-                                       entreprise.getArticles().stream()
-                                               .map(ArticleDto::fromEntity)
-                                               .collect(Collectors.toList()):null
-
-                       )
+//               .articles
+//                       (
+//                               entreprise.getArticles()!=null ?
+//                                       entreprise.getArticles().stream()
+//                                               .map(ArticleDto::fromEntity)
+//                                               .collect(Collectors.toList()):null
+//
+//                       )
                 .build();
 
     }

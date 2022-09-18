@@ -3,14 +3,18 @@ package com.khebli.gestiondestockproject.dto;
 import com.khebli.gestiondestockproject.model.Adresse;
 import com.khebli.gestiondestockproject.model.Client;
 import com.khebli.gestiondestockproject.model.CommandeClient;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ClientDto {
 
     private Integer Id;

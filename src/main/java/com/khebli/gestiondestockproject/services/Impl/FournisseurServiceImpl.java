@@ -6,6 +6,7 @@ import com.khebli.gestiondestockproject.exception.ErrorCodes;
 import com.khebli.gestiondestockproject.model.Fournisseur;
 import com.khebli.gestiondestockproject.repository.FournisseurRepository;
 import com.khebli.gestiondestockproject.services.FournisseurService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class FournisseurServiceImpl implements FournisseurService {
 
     FournisseurRepository fournisseurRepository;
