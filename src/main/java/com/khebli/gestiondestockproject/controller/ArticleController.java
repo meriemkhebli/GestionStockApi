@@ -14,7 +14,6 @@ public class ArticleController implements ArticleApi {
     //field injection
     private ArticleService articleService;
 
-
     //injection parConstructeur
     @Autowired
     public ArticleController(ArticleService articleService) {
@@ -43,6 +42,6 @@ public class ArticleController implements ArticleApi {
 
     @Override
     public void delete(Integer id) {
-     articleService.delete(id);
+        articleService.delete(id);
     }
 }
